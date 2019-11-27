@@ -51,7 +51,7 @@ public class Deck {
         }
         return this.currentDeck.remove(0);
     }
-    
+
     public boolean discardOneCard() {
         if (isDeckEmpty()) return false;
         this.currentDeck.remove(0);

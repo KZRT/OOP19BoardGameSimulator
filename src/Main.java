@@ -1,9 +1,10 @@
 public class Main {
-    public static void main(String[] args){
-        Deck a = new Deck();
-        for(int i=0; i<123; i++){
-            a.popOneCard().print();
-            System.out.println();
+    public static void main(String[] args) {
+        Dice a = new Dice();
+        for (int i = 0; i < 100; i++) {
+
+            a.roll();
+            a.print();
         }
     }
 }
