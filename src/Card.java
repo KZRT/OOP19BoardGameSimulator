@@ -1,9 +1,17 @@
 public class Card {
     private int num;
-    private Shape shape;
+    private CardShape shape;
 
-    Card(){}
-    Card(int num, Shape shape){}
+    Card() {
+    }
 
-    public void print(){}
+    Card(int num, CardShape shape) {
+        this.num = num;
+        this.shape = shape;
+    }
+
+    public void print() {
+        this.shape.print();
+        System.out.print(" " + num);
+    }
 }

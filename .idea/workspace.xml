@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db6bd785-63d8-4102-9759-1ef79fd6e8a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Card.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Deck.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Game.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Shape.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardShape.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Deck" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Deck" />
       <module name="OOP19BoardGameSimulator" />
@@ -55,8 +55,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="OOP19BoardGameSimulator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Deck" />
       </list>
     </recent_temporary>
@@ -72,6 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574836762797</updated>
       <workItem from="1574836765906" duration="834000" />
+      <workItem from="1574840335976" duration="784000" />
     </task>
     <servers />
   </component>
@@ -83,7 +92,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
