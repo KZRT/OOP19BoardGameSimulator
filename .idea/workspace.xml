@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Card.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -14,6 +15,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="OOP19BoardGameSimulator" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,6 +37,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -79,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574836762797</updated>
       <workItem from="1574836765906" duration="834000" />
-      <workItem from="1574840335976" duration="1194000" />
+      <workItem from="1574840335976" duration="3423000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,24 @@ public class Card {
         this.shape = shape;
     }
 
+    Card(int num, int shape) {
+        this.num = num;
+        switch (shape) {
+            case 0:
+                this.shape = CardShape.SPADE;
+                break;
+            case 1:
+                this.shape = CardShape.HEART;
+                break;
+            case 2:
+                this.shape = CardShape.DIAMOND;
+                break;
+            case 3:
+                this.shape = CardShape.CLOVE;
+                break;
+        }
+    }
+
     public void print() {
         this.shape.print();
         System.out.print(" ");
