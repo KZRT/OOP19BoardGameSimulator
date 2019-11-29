@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db6bd785-63d8-4102-9759-1ef79fd6e8a9" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Poker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Poker.java" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/HandScorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CardShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+>>>>>>> d91fffa1462ee8b5816b9ffbd93d5575b9739c55
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +94,11 @@
       <workItem from="1574836765906" duration="834000" />
       <workItem from="1574840335976" duration="4673000" />
       <workItem from="1574916741766" duration="2929000" />
+<<<<<<< HEAD
       <workItem from="1575016590088" duration="3424000" />
+=======
+      <workItem from="1575016590088" duration="3136000" />
+>>>>>>> d91fffa1462ee8b5816b9ffbd93d5575b9739c55
     </task>
     <servers />
   </component>
