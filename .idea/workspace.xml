@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db6bd785-63d8-4102-9759-1ef79fd6e8a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Dice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/HandScorer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP19BoardGameSimulator/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CardShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,6 +38,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RunDashboard">
@@ -83,7 +86,9 @@
       <option name="presentableId" value="Default" />
       <updated>1574836762797</updated>
       <workItem from="1574836765906" duration="834000" />
-      <workItem from="1574840335976" duration="4138000" />
+      <workItem from="1574840335976" duration="4673000" />
+      <workItem from="1574916741766" duration="2929000" />
+      <workItem from="1575016590088" duration="3136000" />
     </task>
     <servers />
   </component>

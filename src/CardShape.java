@@ -10,4 +10,5 @@ public enum CardShape {
     public void print() {
         System.out.print(this.label);
     }
+
 }

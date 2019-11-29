@@ -1,4 +1,4 @@
-public class Card {
+public class Card implements Comparable<Card>{
     private int num;
     private CardShape shape;
 
@@ -54,5 +54,14 @@ public class Card {
 
     public CardShape getShape() {
         return this.shape;
+    }
+
+    @Override
+    public int compareTo(Card o) {
+        int tempThisNum = this.num;
+        int tempObjectNum = o.num;
+        if(this.num == 1) tempThisNum = 14;
+        if(o.num == 1) tempObjectNum = 14;
+        return tempObjectNum - tempThisNum;
     }
 }
