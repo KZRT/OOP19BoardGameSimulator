@@ -32,13 +32,12 @@ public class Poker implements Game {
         return true;
     }
 
-    @Override
+    
     public boolean isGameEnd() {
         if (turn > 6) return true;
         return false;
     }
 
-    @Override
     public boolean nextTurn(Scanner input) {
         System.out.print("Y to Bet, N to fold: ");
         String tempChar = input.nextLine();
@@ -50,7 +49,7 @@ public class Poker implements Game {
         }
     }
 
-    @Override
+    
     public boolean printOneTurn() {
         if (turn == 1) {
             System.out.println("\t\t\t\t\t\tTurn " + turn);
@@ -68,11 +67,10 @@ public class Poker implements Game {
             turn++;
             return true;
         } else if (turn < 6) {
-<<<<<<< HEAD
+
             System.out.println("\t\t\t\t\t\tTurn " + turn);
-=======
->>>>>>> d91fffa1462ee8b5816b9ffbd93d5575b9739c55
-            System.out.print("\t\t\t\tRiver:\t");
+
+            System.out.println("\t\t\t\tRiver:\t");
             for (int i = 0; i < turn; i++) {
                 riverHand.get(i).print();
                 System.out.print("\t");
@@ -90,10 +88,9 @@ public class Poker implements Game {
             turn++;
             return true;
         } else if (turn == 6) {
-<<<<<<< HEAD
+
             System.out.println("\t\t\t\t\t\tEnd of Game");
-=======
->>>>>>> d91fffa1462ee8b5816b9ffbd93d5575b9739c55
+
             System.out.print("\t\t\t\tRiver:\t");
             for (int i = 0; i < 5; i++) {
                 riverHand.get(i).print();
@@ -115,25 +112,21 @@ public class Poker implements Game {
             HandScorer dealerScore = new HandScorer(dealerHand);
             HandScorer playerScore = new HandScorer(playerHand);
             if (dealerScore.getScore() > playerScore.getScore()) {
-<<<<<<< HEAD
+
                 System.out.println("\tDealer wins by " + dealerScore.getDescription());
             } else if (dealerScore.getScore() < playerScore.getScore()) {
                 System.out.println("\tYou wins by " + playerScore.getDescription());
-            } else
+            } else 
                 System.out.println("\tDraws by " + dealerScore.getDescription() + " and " + playerScore.getDescription());
-=======
+
                 System.out.println("Dealer wins by " + dealerScore.getDescription());
-            } else if (dealerScore.getScore() < playerScore.getScore()) {
-                System.out.println("You wins by " + playerScore.getDescription());
-            } else
-                System.out.println("Draws by " + dealerScore.getDescription() + " and " + playerScore.getDescription());
->>>>>>> d91fffa1462ee8b5816b9ffbd93d5575b9739c55
+            
+            } 
             turn = 0;
             return false;
-        }else return false;
-    }
+        } 
+   
 
-    @Override
     public int cheapGain(int bet) {
         return betMoney * 6;
     }

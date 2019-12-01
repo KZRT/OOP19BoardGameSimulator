@@ -1,8 +1,16 @@
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        Poker a = new Poker();
+public class GameManager {
+	public void gametoPlay(int temp) {
+		switch (temp) {
+		case 0:break;
+		case 1:poker(); break;
+		case 2:blackJack(); break;
+		default: System.out.print("no such game");
+		}
+	}
+	private void poker() {
+		Poker a = new Poker();
         int card = 0;
         System.out.println("How much will you bet: ");
         Scanner input = new Scanner(System.in);
@@ -17,5 +25,8 @@ public class Main {
         }
         card += a.cheapGain(bet);
         System.out.print(card);
-    }
+	}
+	private void blackJack() {
+		System.out.print("blackJack\n");
+	}
 }
