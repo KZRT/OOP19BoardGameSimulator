@@ -27,6 +27,21 @@ public class GameManager {
         System.out.print(card);
 	}
 	private void blackJack() {
-		System.out.print("blackJack\n");
+		Blackjack b = new Blackjack();
+		int card = 0;
+		System.out.println("How much will you bet: ");
+        Scanner input = new Scanner(System.in);
+        int bet = input.nextInt();
+        input.nextLine();
+        b.initialize(bet);
+        while(!b.isGameEnd())
+        {
+            System.out.flush();
+            if(!b.printOneTurn()) break;
+            if(!b.nextTurn(input)) break;
+        }
+        card += b.cheapGain(bet);
+        System.out.println(card);
+        System.out.println("");
 	}
 }

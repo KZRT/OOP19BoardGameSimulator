@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class Card implements Comparable<Card>{
     private int num;
     private CardShape shape;
@@ -55,6 +57,7 @@ public class Card implements Comparable<Card>{
     public CardShape getShape() {
         return this.shape;
     }
+   
 
     @Override
     public int compareTo(Card o) {
