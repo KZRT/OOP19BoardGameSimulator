@@ -90,7 +90,7 @@ public class Blackjack implements Game {
 			int tm1 = temp + count; int tm2 = temp + (count * 11);
 			if (tm1 >= 21) {
 				temp = tm1;
-			} else if (tm2 <= 21) {
+			} else if (tm2 <= 21 && tm2 != 17) {
 				temp = tm2;
 			} else temp = tm1;
 		}
