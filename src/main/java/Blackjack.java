@@ -32,7 +32,6 @@ public class Blackjack implements Game {
         return true;
     }
 	
-	@Override
 	public boolean printOneTurn() {
 		if (turn == 1) Collections.shuffle(dealerCard);
 		Card temp = dealerCard.get(0);
@@ -133,22 +132,24 @@ public class Blackjack implements Game {
 	        	dealerCard.add(blackDeck.popOneCard());
 	        	System.out.println("Dealer got one more card.");
 	        }
+	        
+	        if (sumOfNum(playerCard) > 21 && sumOfNum(dealerCard) > 21) {
+				System.out.println("Both you and the dealer bust.");
+				check = true;
+				endGame = true;
+				return true;
+			} else if (sumOfNum(playerCard) > 21 && sumOfNum(dealerCard) < 21) {
+				System.out.println("You bust. U lost your whole money. Haha!!!");
+				betMoney = 0;
+				endGame = true; return true;
+			} else if (sumOfNum(playerCard) <= 21 && sumOfNum(dealerCard) > 21) {
+				System.out.println("Dealer bust. U got money.");
+				endGame = true; return true;
+			}
+	        
 	        if (checkIf == true && sumOfNum(dealerCard) > 16) {
 	        	int checkD = 21 - sumOfNum(dealerCard);
 	        	int checkP = 21 - sumOfNum(playerCard);
-	        	if (sumOfNum(playerCard) > 21 && sumOfNum(dealerCard) > 21) {
-					System.out.println("Both you and the dealer bust.");
-					check = true;
-					endGame = true;
-					return true;
-				} else if (sumOfNum(playerCard) > 21 && sumOfNum(dealerCard) < 21) {
-					System.out.println("You bust. U lost your whole money. Haha!!!");
-					betMoney = 0;
-					endGame = true; return true;
-				} else if (sumOfNum(playerCard) <= 21 && sumOfNum(dealerCard) > 21) {
-					System.out.println("Dealer bust. U got money.");
-					endGame = true; return true;
-				}
 	        	if (checkD == checkP) {
 	        		System.out.println("Fair.");
 	        		check = true;
@@ -185,7 +186,6 @@ public class Blackjack implements Game {
 	
 	
 
-	@Override
 	public int cheapGain(int bet) {
 		if (betMoney != bet) {
 			return betMoney;
