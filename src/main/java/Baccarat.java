@@ -57,19 +57,22 @@ public class Baccarat implements Game {
 
     public boolean printOneTurn() {
         System.out.println("=============================");
+
         System.out.println("[BANKER]");
         for (int i = 0; i < hands.sizeOfBanker(); i++) {
             hands.getBankerCard(i).print();
             if (i < hands.sizeOfBanker() - 1)
                 System.out.print(" | ");
         }
-        System.out.println("\n\n[PLAYER]");
+        System.out.println(" (" + hands.getSumOfBanker() + ")\n");
+
+        System.out.println("[PLAYER]");
         for (int i = 0; i < hands.sizeOfPlayer(); i++) {
             hands.getPlayerCard(i).print();
             if (i < hands.sizeOfPlayer() - 1)
                 System.out.print(" | ");
         }
-        System.out.println("\n");
+        System.out.println(" (" + hands.getSumOfPlayer() + ")\n");
 
         if (turn == 1) {
             // Player Turn
