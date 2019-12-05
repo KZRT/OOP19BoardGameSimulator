@@ -5,11 +5,34 @@ public class Main {
         GameManager gm = new GameManager();
         int gameNum = 0;
         do {
-            System.out.print("Which game to play? 1.Poker 2.BlackJack 3.Baccarat 0.Finish\n");
+            clearScreen();
+            System.out.println("====================");
+            System.out.println("|    OOP Casino    |");
+            System.out.println("====================");
+            System.out.println("|   1. Poker       |");
+            System.out.println("|   2. BlackJack   |");
+            System.out.println("|   3. Baccarat    |");
+            System.out.println("|   0. Finish      |");
+            System.out.println("====================");
+            System.out.print(">> ");
             Scanner input = new Scanner(System.in);
             gameNum = input.nextInt();
+            input.nextLine();
+
+            clearScreen();
             gm.gametoPlay(gameNum);
+
+            if (gameNum != 0) {
+                System.out.print("Press Enter to Continue...");
+                input.nextLine();
+            }
         } while (gameNum != 0);
 
+    }
+
+    public static void clearScreen() {
+        for (int i = 0; i < 100; i++)
+            System.out.print("\n");
+        System.out.flush();
     }
 }

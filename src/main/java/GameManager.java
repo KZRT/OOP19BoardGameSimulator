@@ -22,6 +22,7 @@ public class GameManager {
     private void poker() {
         Poker a = new Poker();
         int card = 0;
+        System.out.println("[Poker]");
         System.out.print("How much will you bet: ");
         Scanner input = new Scanner(System.in);
         int bet = input.nextInt();
@@ -35,12 +36,13 @@ public class GameManager {
                 break;
         }
         card += a.cheapGain(bet);
-        System.out.print(card);
+        System.out.println("\n(You won " + card + "!)\n");
     }
 
     private void blackJack() {
         Blackjack b = new Blackjack();
         int card = 0;
+        System.out.println("[BlackJack]");
         System.out.print("How much will you bet: ");
         Scanner input = new Scanner(System.in);
         int bet = input.nextInt();
@@ -54,13 +56,13 @@ public class GameManager {
                 break;
         }
         card += b.cheapGain(bet);
-        System.out.println(card);
-        System.out.println("");
+        System.out.println("\n(You won " + card + "!)\n");
     }
 
     private void baccarat() {
         Baccarat c = new Baccarat();
         int card = 0;
+        System.out.println("[Baccarat]");
         System.out.print("How much will you bet: ");
         Scanner input = new Scanner(System.in);
         int bet = input.nextInt();
@@ -74,7 +76,6 @@ public class GameManager {
                 break;
         }
         card += c.cheapGain(bet);
-        System.out.println(card);
-        System.out.println("");
+        System.out.println("\n(You won " + card + "!)\n");
     }
 }
