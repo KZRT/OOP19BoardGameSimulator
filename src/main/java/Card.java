@@ -69,8 +69,4 @@ public class Card implements Comparable<Card> {
             tempObjectNum = 14;
         return tempObjectNum - tempThisNum;
     }
-
-    public boolean equals(Card o) {
-        return (this.num == o.num && this.shape.label.equals(o.shape.label));
-    }
 }

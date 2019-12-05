@@ -98,7 +98,7 @@ public class Baccarat implements Game {
                 // when player stand
                 if (hands.getSumOfBanker() >= 6) {
                     // banker stand
-                    System.out.println(">> BANKER STAND");
+                    System.out.println(">> BANKER STAND\n");
                     turn++;
                 } else {
                     // banker hit
@@ -144,7 +144,7 @@ public class Baccarat implements Game {
                 case 5:
                 case 6:
                     if (isStand[hands.getSumOfBanker()][hands.getPlayerLastCardValue()]) {
-                        System.out.println(">> BANKER STAND");
+                        System.out.println(">> BANKER STAND\n");
                         turn++;
                     } else {
                         System.out.println(">> BANKER HIT");
@@ -152,7 +152,7 @@ public class Baccarat implements Game {
                     }
                     break;
                 case 7:
-                    System.out.println(">> BANKER STAND");
+                    System.out.println(">> BANKER STAND\n");
                     turn++;
                 }
             }
@@ -184,11 +184,11 @@ public class Baccarat implements Game {
             System.out.println(">> TIE (" + hands.getSumOfPlayer() + " = " + hands.getSumOfBanker() + ")");
         }
 
-        if (hands.getPlayerCard(0).equals(hands.getPlayerCard(1))) {
+        if (hands.getPlayerCard(0).getNum() == hands.getPlayerCard(1).getNum()) {
             System.out.println(">> PLAYER PAIR");
         }
 
-        if (hands.getBankerCard(0).equals(hands.getBankerCard(1))) {
+        if (hands.getBankerCard(0).getNum() == hands.getBankerCard(1).getNum()) {
             System.out.println(">> BANKER PAIR");
         }
     }
@@ -214,12 +214,12 @@ public class Baccarat implements Game {
                 }
                 break;
             case PLAYER_PAIR:
-                if (hands.getPlayerCard(0).equals(hands.getPlayerCard(1))) {
+                if (hands.getPlayerCard(0).getNum() == hands.getPlayerCard(1).getNum()) {
                     result += bet.getReward();
                 }
                 break;
             case BANKER_PAIR:
-                if (hands.getBankerCard(0).equals(hands.getBankerCard(1))) {
+                if (hands.getBankerCard(0).getNum() == hands.getBankerCard(1).getNum()) {
                     result += bet.getReward();
                 }
             }
