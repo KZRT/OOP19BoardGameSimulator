@@ -31,8 +31,9 @@ public class Main {
     }
 
     public static void clearScreen() {
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < 100; i++)
-            System.out.print("\n");
-        System.out.flush();
+            builder.append('\n');
+        System.out.println(builder.toString());
     }
 }
