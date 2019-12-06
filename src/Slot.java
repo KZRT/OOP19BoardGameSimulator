@@ -1,5 +1,6 @@
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Slot implements Game {
@@ -17,7 +18,11 @@ public class Slot implements Game {
     private GameResult result = GameResult.NONE;
     private boolean gameEnd = false;
     private String[] line = { "？", "？", "？" };
-    private Random r = new Random();
+    private SecureRandom r;
+
+    Slot() throws NoSuchAlgorithmException {
+        r = SecureRandom.getInstance("SHA1PRNG");
+    }
 
     public boolean initialize(int bet) {
         this.bet = bet;

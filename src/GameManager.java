@@ -1,9 +1,10 @@
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class GameManager {
     public void gametoPlay(int temp) {
         Game wholeGame = null;
-        String gameName;
+        String gameName = "";
         switch (temp) {
             case 0:
                 return;
@@ -20,7 +21,12 @@ public class GameManager {
                 gameName = "[Baccarat]";
                 break;
             case 4:
-                wholeGame = new Slot();
+                try {
+                    wholeGame = new Slot();
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                    break;
+                }
                 gameName = "[Slot]";
                 break;
             default:
