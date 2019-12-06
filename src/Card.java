@@ -33,7 +33,8 @@ public class Card implements Comparable<Card> {
     public void print() {
         this.shape.print();
         System.out.print(" ");
-        if (this.num > 9) {
+        if(this.num != 10) System.out.print(" ");
+        if (this.num > 10) {
             switch (this.num) {
                 case 11:
                     System.out.print("J");
