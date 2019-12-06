@@ -13,7 +13,7 @@ public class Baccarat implements Game {
         System.out.print("'P' to Bet on Player(x1), 'B' to Bet on Banker(x0.95): ");
         bets.add(new Bet((input.nextLine().trim().toUpperCase().equals("P") ? BetType.PLAYER : BetType.BANKER), bet));
 
-        System.out.println("\n[BONUS BET]");
+        System.out.println("\n[SIDE BET]");
         System.out.print("Enter the amount to Bet on Tie(x8): ");
         int money = Integer.parseInt(input.nextLine());
         if (money > 0) {
@@ -64,7 +64,7 @@ public class Baccarat implements Game {
             if (i < hands.sizeOfBanker() - 1)
                 System.out.print(" | ");
         }
-        System.out.println(" (" + hands.getSumOfBanker() + ")\n");
+        System.out.println("  (" + hands.getSumOfBanker() + ")\n");
 
         System.out.println("[PLAYER]");
         for (int i = 0; i < hands.sizeOfPlayer(); i++) {
@@ -72,7 +72,7 @@ public class Baccarat implements Game {
             if (i < hands.sizeOfPlayer() - 1)
                 System.out.print(" | ");
         }
-        System.out.println(" (" + hands.getSumOfPlayer() + ")\n");
+        System.out.println("  (" + hands.getSumOfPlayer() + ")\n");
 
         if (turn == 1) {
             // Player Turn
