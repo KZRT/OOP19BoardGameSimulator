@@ -105,7 +105,7 @@ public class Slot implements Game {
         for (int i = 0; i < p.length; i++) {
             sum += p[i];
             if (roll <= sum) {
-                return GameResult.values()[i];
+                return GameResult.values()[i + 1];
             }
         }
 
