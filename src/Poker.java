@@ -1,15 +1,15 @@
-import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Poker implements Game {
+    private static final String blankCard = "? ?";
     private Deck pokerDeck;
     private ArrayList<Card> playerHand;
     private ArrayList<Card> dealerHand;
     private ArrayList<Card> riverHand;
     private int betMoney;
     private int turn;
-    private static final String blankCard = "? ?";
 
     Poker() {
         pokerDeck = new Deck(1);
@@ -32,30 +32,28 @@ public class Poker implements Game {
         return true;
     }
 
-    
+
     public boolean isGameEnd() {
-        if (turn > 6) return true;
-        return false;
+        return turn > 6;
     }
 
     public boolean nextTurn(Scanner input) {
         System.out.print("Y to Bet, N to fold: ");
         String tempChar = input.nextLine();
-        if(tempChar.startsWith("Y")) return true;
-        else
-        {
+        if (tempChar.startsWith("Y")) return true;
+        else {
             betMoney = 0;
             return false;
         }
     }
 
-    
+
     public boolean printOneTurn() {
         if (turn == 1) {
             System.out.println("\t\t\t\t\t\tTurn " + turn);
             System.out.print("\t\t\t\tRiver:\t");
             for (int i = 0; i < 5; i++)
-                System.out.print(blankCard + "\t");
+                System.out.print(blankCard + " ");
             System.out.println();
             System.out.println("\tDealer Hand: " + blankCard + " " + blankCard);
             System.out.print("\tYour Hand:\t ");
@@ -76,7 +74,7 @@ public class Poker implements Game {
                 System.out.print("\t");
             }
             for (int i = turn; i < 5; i++)
-                System.out.print(blankCard + "\t");
+                System.out.print(blankCard + " ");
             System.out.println();
             System.out.println("\tDealer Hand: " + blankCard + " " + blankCard);
             System.out.print("\tYour Hand:\t ");
@@ -90,41 +88,42 @@ public class Poker implements Game {
         } else if (turn == 6) {
 
             System.out.println("\t\t\t\t\t\tEnd of Game");
-
-            System.out.print("\t\t\t\tRiver:\t");
-            for (int i = 0; i < 5; i++) {
-                riverHand.get(i).print();
-                System.out.print("\t");
-            }
-            System.out.println();
-            System.out.print("\tDealer Hand: ");
-            dealerHand.get(0).print();
-            System.out.print(" ");
-            dealerHand.get(1).print();
-            System.out.println();
-            System.out.print("\tYour Hand:\t ");
-            playerHand.get(0).print();
-            System.out.print(" ");
-            playerHand.get(1).print();
-            System.out.println();
             dealerHand.addAll(riverHand);
             playerHand.addAll(riverHand);
+            Collections.sort(dealerHand);
+            Collections.sort(playerHand);
+
+            System.out.print("\tDealer Hand: ");
+            for (int i = 0; i < 7; i++) {
+                dealerHand.get(i).print();
+                System.out.print(" ");
+            }
+            System.out.println();
+
+            System.out.print("\tYour Hand:\t ");
+            for (int i = 0; i < 7; i++) {
+                playerHand.get(i).print();
+                System.out.print(" ");
+            }
+            System.out.println();
+
             final HandScorer dealerScore = new HandScorer(dealerHand);
             final HandScorer playerScore = new HandScorer(playerHand);
             final int finalDealerScore = dealerScore.getScore();
             final int finalPlayerScore = playerScore.getScore();
+
             if (finalDealerScore > finalPlayerScore) {
                 System.out.println("\tDealer wins by " + dealerScore.getDescription());
                 betMoney = 0;
             } else if (finalDealerScore < finalPlayerScore) {
                 System.out.println("\tYou wins by " + playerScore.getDescription());
-            } else 
+            } else
                 System.out.println("\tDraws by " + dealerScore.getDescription() + " and " + playerScore.getDescription());
-            } 
-            turn = 0;
-            return false;
-        } 
-   
+        }
+        turn = 0;
+        return false;
+    }
+
 
     public int cheapGain(int bet) {
         return betMoney * 6;

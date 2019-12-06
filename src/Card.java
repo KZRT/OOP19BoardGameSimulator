@@ -15,35 +15,35 @@ public class Card implements Comparable<Card> {
     Card(int num, int shape) {
         this.num = num;
         switch (shape) {
-        case 0:
-            this.shape = CardShape.SPADE;
-            break;
-        case 1:
-            this.shape = CardShape.HEART;
-            break;
-        case 2:
-            this.shape = CardShape.DIAMOND;
-            break;
-        case 3:
-            this.shape = CardShape.CLOVE;
-            break;
+            case 0:
+                this.shape = CardShape.SPADE;
+                break;
+            case 1:
+                this.shape = CardShape.HEART;
+                break;
+            case 2:
+                this.shape = CardShape.DIAMOND;
+                break;
+            case 3:
+                this.shape = CardShape.CLOVE;
+                break;
         }
     }
 
     public void print() {
         this.shape.print();
         System.out.print(" ");
-        if (this.num > 10) {
+        if (this.num > 9) {
             switch (this.num) {
-            case 11:
-                System.out.print("J");
-                break;
-            case 12:
-                System.out.print("Q");
-                break;
-            case 13:
-                System.out.print("K");
-                break;
+                case 11:
+                    System.out.print("J");
+                    break;
+                case 12:
+                    System.out.print("Q");
+                    break;
+                case 13:
+                    System.out.print("K");
+                    break;
             }
         } else if (this.num == 1) {
             System.out.print("A");
