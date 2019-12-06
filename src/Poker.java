@@ -40,7 +40,7 @@ public class Poker implements Game {
     public boolean nextTurn(Scanner input) {
         System.out.print("Y to Bet, N to fold: ");
         String tempChar = input.nextLine();
-        if (tempChar.startsWith("Y")) return true;
+        if (tempChar.startsWith("Y") | tempChar.startsWith("y")) return true;
         else {
             betMoney = 0;
             return false;
@@ -117,15 +117,17 @@ public class Poker implements Game {
                 betMoney = 0;
             } else if (finalDealerScore < finalPlayerScore) {
                 System.out.println("\tYou wins by " + playerScore.getDescription());
-            } else
+            } else {
                 System.out.println("\tDraws by " + dealerScore.getDescription() + " and " + playerScore.getDescription());
+                betMoney = -1;
+                turn = 0;
+                return false;
+            }
         }
-        turn = 0;
-        return false;
     }
 
-
     public int cheapGain(int bet) {
+        if (betMoney < 0) return bet;
         return betMoney * 6;
     }
 }

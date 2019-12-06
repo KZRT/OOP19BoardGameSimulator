@@ -29,6 +29,12 @@ public class GameManager {
         System.out.print("How much will you bet: ");
         Scanner input = new Scanner(System.in);
         int bet = input.nextInt();
+        while(bet<=0)
+        {
+            System.out.println("Cannot place bet below 0");
+            System.out.print("How much will you bet: ");
+            bet = input.nextInt();
+        }
         input.nextLine();
         wholeGame.initialize(bet);
         while (!wholeGame.isGameEnd()) {

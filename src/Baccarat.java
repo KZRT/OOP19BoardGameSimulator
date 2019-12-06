@@ -136,27 +136,27 @@ public class Baccarat implements Game {
                 isStand[6][9] = true;
 
                 switch (hands.getSumOfBanker()) {
-                case 0:
-                case 1:
-                case 2:
-                    System.out.println(">> BANKER HIT");
-                    hands.addCardToBanker(deck.popOneCard());
-                    break;
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    if (isStand[hands.getSumOfBanker()][hands.getPlayerLastCardValue()]) {
-                        System.out.println(">> BANKER STAND\n");
-                        turn++;
-                    } else {
+                    case 0:
+                    case 1:
+                    case 2:
                         System.out.println(">> BANKER HIT");
                         hands.addCardToBanker(deck.popOneCard());
-                    }
-                    break;
-                case 7:
-                    System.out.println(">> BANKER STAND\n");
-                    turn++;
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        if (isStand[hands.getSumOfBanker()][hands.getPlayerLastCardValue()]) {
+                            System.out.println(">> BANKER STAND\n");
+                            turn++;
+                        } else {
+                            System.out.println(">> BANKER HIT");
+                            hands.addCardToBanker(deck.popOneCard());
+                        }
+                        break;
+                    case 7:
+                        System.out.println(">> BANKER STAND\n");
+                        turn++;
                 }
             }
         }
@@ -201,30 +201,30 @@ public class Baccarat implements Game {
 
         for (Bet bet : bets) {
             switch (bet.type) {
-            case PLAYER:
-                if (hands.getSumOfPlayer() > hands.getSumOfBanker()) {
-                    result += bet.getReward();
-                }
-                break;
-            case BANKER:
-                if (hands.getSumOfPlayer() < hands.getSumOfBanker()) {
-                    result += bet.getReward();
-                }
-                break;
-            case TIE:
-                if (hands.getSumOfPlayer() == hands.getSumOfBanker()) {
-                    result += bet.getReward();
-                }
-                break;
-            case PLAYER_PAIR:
-                if (hands.getPlayerCard(0).getNum() == hands.getPlayerCard(1).getNum()) {
-                    result += bet.getReward();
-                }
-                break;
-            case BANKER_PAIR:
-                if (hands.getBankerCard(0).getNum() == hands.getBankerCard(1).getNum()) {
-                    result += bet.getReward();
-                }
+                case PLAYER:
+                    if (hands.getSumOfPlayer() > hands.getSumOfBanker()) {
+                        result += bet.getReward();
+                    }
+                    break;
+                case BANKER:
+                    if (hands.getSumOfPlayer() < hands.getSumOfBanker()) {
+                        result += bet.getReward();
+                    }
+                    break;
+                case TIE:
+                    if (hands.getSumOfPlayer() == hands.getSumOfBanker()) {
+                        result += bet.getReward();
+                    }
+                    break;
+                case PLAYER_PAIR:
+                    if (hands.getPlayerCard(0).getNum() == hands.getPlayerCard(1).getNum()) {
+                        result += bet.getReward();
+                    }
+                    break;
+                case BANKER_PAIR:
+                    if (hands.getBankerCard(0).getNum() == hands.getBankerCard(1).getNum()) {
+                        result += bet.getReward();
+                    }
             }
         }
 
@@ -248,18 +248,18 @@ public class Baccarat implements Game {
             int result = money;
 
             switch (type) {
-            case PLAYER:
-                result += money;
-                break;
-            case BANKER:
-                result += money * 0.95;
-                break;
-            case TIE:
-                result += money * 8;
-                break;
-            case PLAYER_PAIR:
-            case BANKER_PAIR:
-                result += money * 11;
+                case PLAYER:
+                    result += money;
+                    break;
+                case BANKER:
+                    result += money * 0.95;
+                    break;
+                case TIE:
+                    result += money * 8;
+                    break;
+                case PLAYER_PAIR:
+                case BANKER_PAIR:
+                    result += money * 11;
             }
 
             return result;
