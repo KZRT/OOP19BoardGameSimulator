@@ -12,7 +12,7 @@ public class Blackjack implements Game {
 	
 	
 	Blackjack() {
-		blackDeck = new Deck(3);
+		blackDeck = new Deck(6);
 		playerCard = new ArrayList<>(10);
 		dealerCard = new ArrayList<>(10);
 		turn = 0;

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Baccarat implements Game {
-    private Deck deck = new Deck(1);
+    private Deck deck = new Deck(8);
     private BaccaratHands hands = new BaccaratHands();
     private ArrayList<Bet> bets = new ArrayList<>();
     private int turn = 0;
