@@ -70,7 +70,7 @@ public class Poker implements Game {
 
             System.out.println("\t\t\t\t\t\tTurn " + turn);
 
-            System.out.println("\t\t\t\tRiver:\t");
+            System.out.print("\t\t\t\tRiver:\t");
             for (int i = 0; i < turn; i++) {
                 riverHand.get(i).print();
                 System.out.print("\t");
@@ -109,18 +109,17 @@ public class Poker implements Game {
             System.out.println();
             dealerHand.addAll(riverHand);
             playerHand.addAll(riverHand);
-            HandScorer dealerScore = new HandScorer(dealerHand);
-            HandScorer playerScore = new HandScorer(playerHand);
-            if (dealerScore.getScore() > playerScore.getScore()) {
-
+            final HandScorer dealerScore = new HandScorer(dealerHand);
+            final HandScorer playerScore = new HandScorer(playerHand);
+            final int finalDealerScore = dealerScore.getScore();
+            final int finalPlayerScore = playerScore.getScore();
+            if (finalDealerScore > finalPlayerScore) {
                 System.out.println("\tDealer wins by " + dealerScore.getDescription());
-            } else if (dealerScore.getScore() < playerScore.getScore()) {
+                betMoney = 0;
+            } else if (finalDealerScore < finalPlayerScore) {
                 System.out.println("\tYou wins by " + playerScore.getDescription());
             } else 
                 System.out.println("\tDraws by " + dealerScore.getDescription() + " and " + playerScore.getDescription());
-
-                System.out.println("Dealer wins by " + dealerScore.getDescription());
-            
             } 
             turn = 0;
             return false;

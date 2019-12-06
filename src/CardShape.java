@@ -1,5 +1,5 @@
 public enum CardShape {
-    SPADE("¢¼"), HEART("¢¾"), DIAMOND("¡ß"), CLOVE("¢À");
+    SPADE("¢¼"), HEART("¢¾"), DIAMOND("¢Â"), CLOVE("¢À");
 
     public final String label;
 
