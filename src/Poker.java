@@ -94,15 +94,15 @@ public class Poker implements Game {
             Collections.sort(playerHand);
 
             System.out.print("\tDealer Hand: ");
-            for (int i = 0; i < 7; i++) {
-                dealerHand.get(i).print();
+            for (Card dealerCard : dealerHand) {
+                dealerCard.print();
                 System.out.print(" ");
             }
             System.out.println();
 
             System.out.print("\tYour Hand:\t ");
-            for (int i = 0; i < 7; i++) {
-                playerHand.get(i).print();
+            for (Card playerCard: playerHand) {
+                playerCard.print();
                 System.out.print(" ");
             }
             System.out.println();
@@ -120,10 +120,12 @@ public class Poker implements Game {
             } else {
                 System.out.println("\tDraws by " + dealerScore.getDescription() + " and " + playerScore.getDescription());
                 betMoney = -1;
-                turn = 0;
-                return false;
             }
+            turn = 0;
+            return false;
         }
+        turn = 0;
+        return false;
     }
 
     public int cheapGain(int bet) {
