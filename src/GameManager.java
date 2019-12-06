@@ -19,6 +19,10 @@ public class GameManager {
                 wholeGame = new Baccarat();
                 gameName = "[Baccarat]";
                 break;
+            case 4:
+                wholeGame = new Slot();
+                gameName = "[Slot]";
+                break;
             default:
                 System.out.println("no such game");
                 return;
