@@ -29,6 +29,10 @@ public class GameManager {
                 }
                 gameName = "[Slot]";
                 break;
+            case 5:
+            	wholeGame = new Taisai();
+            	gameName = "[Taisai]";
+            	break;
             default:
                 System.out.println("no such game");
                 return;

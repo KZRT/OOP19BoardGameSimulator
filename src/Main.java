@@ -13,6 +13,7 @@ public class Main {
             System.out.println("|   2. BlackJack   |");
             System.out.println("|   3. Baccarat    |");
             System.out.println("|   4. Slot        |");
+            System.out.println("|   5. Taisai      |");
             System.out.println("|   0. Finish      |");
             System.out.println("====================");
             System.out.print(">> ");
