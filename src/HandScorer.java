@@ -32,12 +32,12 @@ public class HandScorer {
      * @return A relative score for the current hand. A higher score means it's
      *         better.
      */
-    public static int handScore(ArrayList<Card> fullHand) {
+    public static long handScore(ArrayList<Card> fullHand) {
         HandScorer myCalc = new HandScorer(fullHand);
         return myCalc.getScore();
     }
 
-    public int getScore() {
+    public long getScore() {
         if (score == -1) {
             calculateScore();
         }
@@ -52,7 +52,7 @@ public class HandScorer {
     }
 
     private Card[] hand;
-    private int score = -1;
+    private long score = -1;
     private Score myScore;
 
     // Constructor
@@ -150,6 +150,8 @@ public class HandScorer {
             }
         }
 
+        int tieSize = 0;
+
         // Now we have the two most repeated cards. Let's set the type (pair)
         // and the typeLevel (of 8's).
         boolean secondCardImportant = false;
@@ -157,28 +159,34 @@ public class HandScorer {
             // Four of a kind
             myScore.setType(FOUR_OF_A_KIND);
             myScore.setTypeLevel(card1);
+            tieSize = 1;
         } else if (myScore.getType() < FULL_HOUSE && rep1 == 3 && rep2 == 2) {
             // Full house
             myScore.setType(FULL_HOUSE);
             myScore.setTypeLevel(card1 * 14 + card2);
             secondCardImportant = true;
+            tieSize = 0;
         } else if (myScore.getType() < THREE_OF_A_KIND && rep1 == 3) {
             // Three of a kind
             myScore.setType(THREE_OF_A_KIND);
             myScore.setTypeLevel(card1);
+            tieSize = 2;
         } else if (myScore.getType() < TWO_PAIR && rep1 == 2 && rep2 == 2) {
             // Two pair
             myScore.setType(TWO_PAIR);
             myScore.setTypeLevel(card1 * 14 + card2);
             secondCardImportant = true;
+            tieSize = 1;
         } else if (myScore.getType() < PAIR && rep1 == 2) {
             // One pair
             myScore.setType(PAIR);
             myScore.setTypeLevel(card1);
+            tieSize = 3;
         } else if (myScore.getType() < HIGH_CARD && rep1 == 1) {
             // Got nothing, high card
             myScore.setType(HIGH_CARD);
             myScore.setTypeLevel(card1);
+            tieSize = 4;
         } else {
             throw new RuntimeException("Couldn't determine hand.");
         }
@@ -192,9 +200,8 @@ public class HandScorer {
             }
             if (secondCardImportant && c.getNum() == card2) {
                 add2tieBreak = false;
-
             }
-            if (add2tieBreak) {
+            if (add2tieBreak && tieBreakHand.size() < tieSize) {
                 tieBreakHand.add(c);
             }
         }
@@ -207,7 +214,7 @@ public class HandScorer {
             tieBreak[pos++] = c;
         }
         Arrays.sort(tieBreak);
-        int tieBreakValue = 0;
+        long tieBreakValue = 0;
         for (int i = 0; i < tieBreakSize; i++) {
             Card c = tieBreak[i];
             int currNum = c.getNum();
@@ -337,13 +344,13 @@ public class HandScorer {
          * The weight factor of the type of hand. We want the type of card to be
          * more important than the tiebreaker card or the quality of the type.
          */
-        public static final int TYPE_WEIGHT = 1000000;
+        public static final long TYPE_WEIGHT = 100000000000L;
 
         /**
          * Similar to TYPE_WEIGHT, this weights the quality of the type to be
          * more than a "kicker" or tie breaking card.
          */
-        public static final int TYPE_LEVEL_WEIGHT = 1000;
+        public static final long TYPE_LEVEL_WEIGHT = 10000000L;
 
         /**
          * Represents the type of hand. Higher is better. A type of 2 means
@@ -357,7 +364,7 @@ public class HandScorer {
          * 2, whereas a large type means your full house is something like a K
          * and a Q. Ranges from 0 to 14 * 14 + 14 = 210.
          */
-        private int typeLevel;
+        private long typeLevel;
 
         /**
          * Represents the tieBreaker power of a hand. For example in a pair of
@@ -365,7 +372,7 @@ public class HandScorer {
          * tieBreaker score, whereas if you have a 3 for a tie breaking card,
          * your tieBreaker score will be low.
          */
-        private int tieBreaker;
+        private long tieBreaker;
         private String description;
 
         public Score() {
@@ -426,11 +433,11 @@ public class HandScorer {
             return description;
         }
 
-        public void setTypeLevel(int typeLevel) {
+        public void setTypeLevel(long typeLevel) {
             this.typeLevel = typeLevel;
         }
 
-        public void setTieBreaker(int tieBreaker) {
+        public void setTieBreaker(long tieBreaker) {
             this.tieBreaker = tieBreaker;
         }
 
@@ -438,9 +445,9 @@ public class HandScorer {
             return type > -1 && typeLevel > -1 && tieBreaker > -1;
         }
 
-        public int getScore() {
-            int bigWeight = type * TYPE_WEIGHT;
-            int mediumWeight = typeLevel * TYPE_LEVEL_WEIGHT;
+        public long getScore() {
+            long bigWeight = type * TYPE_WEIGHT;
+            long mediumWeight = typeLevel * TYPE_LEVEL_WEIGHT;
             return bigWeight + mediumWeight + tieBreaker;
         }
     }

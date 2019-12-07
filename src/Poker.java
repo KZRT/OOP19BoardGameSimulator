@@ -109,8 +109,8 @@ public class Poker implements Game {
 
             final HandScorer dealerScore = new HandScorer(dealerHand);
             final HandScorer playerScore = new HandScorer(playerHand);
-            final int finalDealerScore = dealerScore.getScore();
-            final int finalPlayerScore = playerScore.getScore();
+            final long finalDealerScore = dealerScore.getScore();
+            final long finalPlayerScore = playerScore.getScore();
 
             if (finalDealerScore > finalPlayerScore) {
                 System.out.println("\tDealer wins by " + dealerScore.getDescription());
