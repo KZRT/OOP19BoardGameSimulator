@@ -7,9 +7,9 @@ public class Blackjack implements Game {
 	private ArrayList<Card> playerCard;
 	private ArrayList<Card> dealerCard;
 	private ArrayList<Card> p2Card;
-	private int betMoney, turn;
+	private int betMoney, turn, tempBetMoney;
 	private boolean check, bust1, bust2;
-	private boolean endGame, splitCard;
+	private boolean endGame, splitCard, insuBool;
 	
 	
 	
@@ -25,8 +25,8 @@ public class Blackjack implements Game {
 	
 	public boolean initialize(int bet) {
         betMoney = bet;
-        turn = 1;
-        endGame = false; check = false; splitCard = false; bust1=false; bust2=false;
+        turn = 1; tempBetMoney = bet;
+        endGame = false; check = false; splitCard = false; bust1=false; bust2=false; insuBool=false;
         blackDeck.shuffleDeck();
         for (int i = 0; i < 2; i++) {
             playerCard.add(blackDeck.popOneCard());
@@ -71,8 +71,8 @@ public class Blackjack implements Game {
 	        		check = true; endGame = true;
 	        		return true;
 	        	} else {
-	        		
-	        		System.out.println("You lost your additional bet money.");
+	        		insuBool = true;
+	        		System.out.println("Insurance Failed.");
 	        	}
 	        } else {}
 		}
@@ -293,6 +293,9 @@ public void printResult(ArrayList<Card> dl, ArrayList<Card> plF, ArrayList<Card>
 			}
 		}
 		
+	}
+	if (insuBool) {
+		betMoney-=tempBetMoney;
 	}
 	}
 	
