@@ -140,11 +140,13 @@ public class HandScorer {
         for (int i = 12; i >= 0; i--) {
             int currCount = repeats[i];
             if (currCount > rep1) {
+                rep2 = rep1;
+                card2 = card1;
                 rep1 = currCount;
-                card1 = currCount + 1;
+                card1 = i + 1;
             } else if (currCount > rep2) {
                 rep2 = currCount;
-                card2 = currCount + 1;
+                card2 = i + 1;
             }
         }
 
