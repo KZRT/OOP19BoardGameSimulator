@@ -34,7 +34,6 @@ public class Main {
 
             clearScreen();
             gm.gametoPlay(gameNum);
-
             if (gameNum != 0) {
                 System.out.print("Press Enter to Continue...");
                 input.nextLine();
