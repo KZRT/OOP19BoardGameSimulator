@@ -8,21 +8,38 @@ public class Player {
     private int wallet;
     private int chipTotal;
     private int[] chipCount;
+    private static Player player = new Player(1000000);
 
-    Player() {
+    private Player() {
         wallet = 0;
         chipTotal = 0;
         chipCount = new int[13];
     }
 
-    Player(int amount) {
+    private Player(int amount) {
         wallet = amount;
         chipTotal = 0;
         chipCount = new int[13];
     }
 
+    public static Player getInstance() {
+        return player;
+    }
+
     public int getWallet() {
         return this.wallet;
+    }
+
+    public void setWallet(int wallet) {
+        this.wallet = wallet;
+    }
+
+    public void payWallet(int amount) {
+        if (amount <= this.wallet) {
+            this.wallet -= amount;
+        } else {
+            throw new RuntimeException("The amount in wallet is less than " + amount);
+        }
     }
 
     public void printWallet() {

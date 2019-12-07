@@ -1,11 +1,14 @@
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Player player = Player.getInstance();
         GameManager gm = new GameManager();
         int gameNum = 0;
         do {
             clearScreen();
+
             System.out.println("====================");
             System.out.println("|    OOP Casino    |");
             System.out.println("====================");
@@ -15,6 +18,15 @@ public class Main {
             System.out.println("|   4. Slot        |");
             System.out.println("|   0. Finish      |");
             System.out.println("====================");
+
+            if (player.getWallet() == 0) {
+                System.out.println("\nYour money is $0.");
+                System.out.println("You can't play game anymore.");
+                System.out.println("Get out of our casino!");
+                break;
+            }
+
+            System.out.println("(My Money: $" + NumberFormat.getInstance().format(player.getWallet()) + ")\n");
             System.out.print(">> ");
             Scanner input = new Scanner(System.in);
             gameNum = input.nextInt();

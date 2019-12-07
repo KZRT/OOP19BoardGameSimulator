@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,23 +15,55 @@ public class Baccarat implements Game {
         bets.add(new Bet((input.nextLine().trim().toUpperCase().equals("P") ? BetType.PLAYER : BetType.BANKER), bet));
 
         System.out.println("\n[SIDE BET]");
-        System.out.print("Enter the amount to Bet on Tie(x8): ");
-        int money = Integer.parseInt(input.nextLine());
+        int money = 0;
+
+        while (true) {
+            System.out.print("Enter the amount to Bet on Tie(x8): ");
+            money = Integer.parseInt(input.nextLine());
+
+            if (money > Player.getInstance().getWallet()) {
+                System.out.println("You can't bet more than $" + NumberFormat.getInstance().format(Player.getInstance().getWallet()) + "\n");
+            } else {
+                break;
+            }
+        }
+
         if (money > 0) {
             bets.add(new Bet(BetType.TIE, money));
+            Player.getInstance().payWallet(money);
         }
 
         if (bets.get(0).type == BetType.PLAYER) {
-            System.out.print("Enter the amount to Bet on Banker Pair(x11): ");
-            money = Integer.parseInt(input.nextLine());
+            while (true) {
+                System.out.print("Enter the amount to Bet on Banker Pair(x11): ");
+                money = Integer.parseInt(input.nextLine());
+
+                if (money > Player.getInstance().getWallet()) {
+                    System.out.println("You can't bet more than $" + NumberFormat.getInstance().format(Player.getInstance().getWallet()) + "\n");
+                } else {
+                    break;
+                }
+            }
+
             if (money > 0) {
                 bets.add(new Bet(BetType.BANKER_PAIR, money));
+                Player.getInstance().payWallet(money);
             }
         } else {
-            System.out.print("Enter the amount to Bet on Player Pair(x11): ");
-            money = Integer.parseInt(input.nextLine());
+            while (true) {
+                System.out.print("Enter the amount to Bet on Player Pair(x11): ");
+                money = Integer.parseInt(input.nextLine());
+
+                if (money > Player.getInstance().getWallet()) {
+                    System.out.println("You can't bet more than $" + NumberFormat.getInstance().format(Player.getInstance().getWallet()) + "\n");
+                } else {
+                    break;
+                }
+            }
+
             if (money > 0) {
                 bets.add(new Bet(BetType.PLAYER_PAIR, money));
+                Player.getInstance().payWallet(money);
             }
         }
 
