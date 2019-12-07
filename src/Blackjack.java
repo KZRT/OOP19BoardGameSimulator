@@ -12,6 +12,7 @@ public class Blackjack implements Game {
 	private boolean endGame, splitCard;
 	
 	
+	
 	Blackjack() {
 		blackDeck = new Deck(6);
 		playerCard = new ArrayList<>(10);
@@ -34,19 +35,25 @@ public class Blackjack implements Game {
         return true;
     }
 	
+	public void printValue(ArrayList<Card> tem) {
+		for (int i = 0; i < tem.size(); i++) {
+			System.out.print("("+tem.get(i).getShape() + " ");
+			tem.get(i).print(); System.out.println(")");
+		}
+		System.out.println("");
+	}
+	
 	public boolean printOneTurn() {
 		if (turn == 1) Collections.shuffle(dealerCard);
 		Card temp = dealerCard.get(0);
 		Scanner inputIn = new Scanner(System.in);
+		Main.clearScreen();
 		System.out.println("Dealer Card");
 		System.out.print("("+temp.getShape() + "\t");
 		temp.print(); System.out.println(")");
 		System.out.println("(*)");
 		System.out.println(""); System.out.println("Your Card");
-		for (int i = 0; i < playerCard.size(); i++) {
-			System.out.print("("+playerCard.get(i).getShape() + " ");
-			playerCard.get(i).print(); System.out.println(")");
-		}
+		printValue(playerCard);
 		System.out.println("");
 		
 		if (temp.getNum() == 1 && turn == 1) {
@@ -76,16 +83,15 @@ public class Blackjack implements Game {
 			if (c==1) {
 				p2Card.add(playerCard.get(0)); p2Card.add(blackDeck.popOneCard());
 				playerCard.set(0, blackDeck.popOneCard()); splitCard = true;
+				Main.clearScreen();
+				System.out.println("Dealer's deck");
+				System.out.print("("+temp.getShape() + "\t");
+				temp.print(); System.out.println(")");
+				System.out.println("(*)");
 				System.out.println("First Deck\n");
-				for (int i = 0; i < 2; i++) {
-					System.out.print("("+playerCard.get(i).getShape() + " ");
-					playerCard.get(i).print(); System.out.println(")");
-				}
+				printValue(playerCard);
 				System.out.println("Second Deck\n");
-				for (int i = 0; i < 2; i++) {
-					System.out.print("("+p2Card.get(i).getShape() + " ");
-					p2Card.get(i).print(); System.out.println(")");
-				}
+				printValue(p2Card);
 				betMoney *= 2;
 			}
 		}
@@ -210,16 +216,11 @@ public class Blackjack implements Game {
 				dl.add(blackDeck.popOneCard());
 			}
 		}
+		Main.clearScreen();
 		System.out.println("Your Card Deck");
-		for (int i = 1; i <= pl.size(); i++) {
-			System.out.println(i + "th card : " + pl.get(i-1).getShape() + "\t");
-			pl.get(i-1).print(); System.out.println();
-		}
+		printValue(pl);
 		System.out.println("Dealer's Card Deck");
-		for (int i = 1; i <= dl.size(); i++) {
-			System.out.println(i + "th card : " + dl.get(i-1).getShape() + "\t");
-			dl.get(i-1).print(); System.out.println();
-		}
+		printValue(dl);
 		if (bust1) {
 			betMoney = 0; System.out.println("You bust."); endGame=true;
 		}
@@ -244,22 +245,14 @@ public void printResult(ArrayList<Card> dl, ArrayList<Card> plF, ArrayList<Card>
 		}
 	}
 	System.out.println("Your First Card Deck");
-	for (int i = 1; i <= plF.size(); i++) {
-		System.out.println(i + "th card : " + plF.get(i-1).getShape() + "\t");
-		plF.get(i-1).print(); System.out.println();
-	}
+	printValue(plF);
+	
 	System.out.println("");
 	System.out.println("Your Second Card Deck");
-	for (int i = 1; i <= plS.size(); i++) {
-		System.out.println(i + "th card : " + plS.get(i-1).getShape() + "\t");
-		plS.get(i-1).print(); System.out.println();
-	}
+	printValue(plS);
 	System.out.println("");
 	System.out.println("Dealer's Card Deck");
-	for (int i = 1; i <= dl.size(); i++) {
-		System.out.println(i + "th card : " + dl.get(i-1).getShape() + "\t");
-		dl.get(i-1).print(); System.out.println();
-	}
+	printValue(dl);
 	if (bust1 && bust2) {
 		System.out.println("Your both decks bust."); betMoney = 0; endGame = true;
 	}
