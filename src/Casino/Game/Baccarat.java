@@ -18,7 +18,7 @@ public class Baccarat implements Game {
 
     public boolean initialize(int bet) {
         Scanner input = new Scanner(System.in);
-        System.out.print("'P' to Bet on Casino.dataClass.Player(x1), 'B' to Bet on Banker(x0.95): ");
+        System.out.print("'P' to Bet on Player(x1), 'B' to Bet on Banker(x0.95): ");
         bets.add(new Bet((input.nextLine().trim().toUpperCase().equals("P") ? BetType.PLAYER : BetType.BANKER), bet));
         Player.getInstance().payWallet(bet);
         betSum += bet;
@@ -62,7 +62,7 @@ public class Baccarat implements Game {
             }
         } else {
             while (true) {
-                System.out.print("Enter the amount to Bet on Casino.dataClass.Player Pair(x11): ");
+                System.out.print("Enter the amount to Bet on Player Pair(x11): ");
                 money = Integer.parseInt(input.nextLine());
 
                 if (money > Player.getInstance().getWallet()) {
@@ -120,7 +120,7 @@ public class Baccarat implements Game {
         System.out.println("  (" + hands.getSumOfPlayer() + ")\n");
 
         if (turn == 1) {
-            // Casino.dataClass.Player Turn
+            // Player Turn
             if (hands.getSumOfPlayer() >= 8 || hands.getSumOfBanker() >= 8) {
                 // natural
                 System.out.println(">> NATURAL\n");

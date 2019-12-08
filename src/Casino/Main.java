@@ -16,11 +16,11 @@ public class Main {
             System.out.println("====================");
             System.out.println("|    OOP Casino    |");
             System.out.println("====================");
-            System.out.println("|   1. Casino.Game.Poker       |");
+            System.out.println("|   1. Poker       |");
             System.out.println("|   2. BlackJack   |");
-            System.out.println("|   3. Casino.Game.Baccarat    |");
-            System.out.println("|   4. Casino.Game.Slot        |");
-            System.out.println("|   5. Casino.Game.Taisai      |");
+            System.out.println("|   3. Baccarat    |");
+            System.out.println("|   4. Slot        |");
+            System.out.println("|   5. Taisai      |");
             System.out.println("|   9. Exchange    |");
             System.out.println("|   0. Finish      |");
             System.out.println("====================");

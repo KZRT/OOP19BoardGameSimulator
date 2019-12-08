@@ -49,7 +49,7 @@ public class Deck {
     public Card popOneCard() {
         if (isDeckEmpty()) {
             this.shuffleDeck();
-            System.out.println("Casino.dataClass.Deck Is Empty. Shuffling Casino.dataClass.Deck Again");
+            System.out.println("Deck Is Empty. Shuffling Deck Again");
         }
         return this.currentDeck.remove(0);
     }

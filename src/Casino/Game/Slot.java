@@ -198,7 +198,7 @@ public class Slot implements Game {
 
     private void print(String[] line) {
         System.out.println("========================");
-        System.out.println("|       OOP Casino.Game.Slot       |");
+        System.out.println("|       OOP Slot       |");
         System.out.println("========================");
         System.out.println("|  ７ ７ ７   : 5000x  |");
         System.out.println("|  ★ ★ ★   : 100x   |");

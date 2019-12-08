@@ -105,9 +105,9 @@ public class Blackjack implements Game {
                 temp.print();
                 System.out.println(")");
                 System.out.println("(*)");
-                System.out.println("First Casino.dataClass.Deck\n");
+                System.out.println("First Deck\n");
                 printValue(playerCard);
-                System.out.println("Second Casino.dataClass.Deck\n");
+                System.out.println("Second Deck\n");
                 printValue(p2Card);
                 betMoney *= 2;
             }
@@ -150,7 +150,7 @@ public class Blackjack implements Game {
                 }
             }
             if (splitCard && sec == false) {
-                System.out.println("Second Casino.dataClass.Deck : 1.Hit 2.Stay");
+                System.out.println("Second Deck : 1.Hit 2.Stay");
                 int hs = inputIn.nextInt();
                 if (hs == 1) {
                     p2Card.add(blackDeck.popOneCard());
@@ -231,9 +231,9 @@ public class Blackjack implements Game {
             }
         }
         Main.clearScreen();
-        System.out.println("Your Card Casino.dataClass.Deck");
+        System.out.println("Your Card Deck");
         printValue(pl);
-        System.out.println("Dealer's Card Casino.dataClass.Deck");
+        System.out.println("Dealer's Card Deck");
         printValue(dl);
         if (bust1) {
             betMoney *= (-1);
@@ -263,14 +263,14 @@ public class Blackjack implements Game {
                 dl.add(blackDeck.popOneCard());
             }
         }
-        System.out.println("Your First Card Casino.dataClass.Deck");
+        System.out.println("Your First Card Deck");
         printValue(plF);
 
         System.out.println("");
-        System.out.println("Your Second Card Casino.dataClass.Deck");
+        System.out.println("Your Second Card Deck");
         printValue(plS);
         System.out.println("");
-        System.out.println("Dealer's Card Casino.dataClass.Deck");
+        System.out.println("Dealer's Card Deck");
         printValue(dl);
         if (bust1 && bust2) {
             System.out.println("Your both decks bust.");

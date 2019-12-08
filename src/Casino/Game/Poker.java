@@ -98,7 +98,7 @@ public class Poker implements Game {
             return true;
         } else if (turn == 6) {
 
-            System.out.println("\t\t\t\t\t\tEnd of Casino.Game");
+            System.out.println("\t\t\t\t\t\tEnd of Game");
             dealerHand.addAll(riverHand);
             playerHand.addAll(riverHand);
             Collections.sort(dealerHand);
