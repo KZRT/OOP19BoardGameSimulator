@@ -229,6 +229,9 @@ public class Blackjack implements Game {
 				}
 			}
 		}
+		if (insuBool) {
+			betMoney-=tempBetMoney;
+		}
 	}
 	
 public void printResult(ArrayList<Card> dl, ArrayList<Card> plF, ArrayList<Card> plS) {
