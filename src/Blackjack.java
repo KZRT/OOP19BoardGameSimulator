@@ -9,7 +9,7 @@ public class Blackjack implements Game {
 	private ArrayList<Card> p2Card;
 	private int betMoney, turn, tempBetMoney;
 	private boolean check, bust1, bust2;
-	private boolean endGame, splitCard, insuBool;
+	private boolean splitCard, insuBool;
 	
 	
 	
@@ -26,7 +26,7 @@ public class Blackjack implements Game {
 	public boolean initialize(int bet) {
         betMoney = bet;
         turn = 1; tempBetMoney = bet;
-        endGame = false; check = false; splitCard = false; bust1=false; bust2=false; insuBool=false;
+         check = false; splitCard = false; bust1=false; bust2=false; insuBool=false;
         blackDeck.shuffleDeck();
         for (int i = 0; i < 2; i++) {
             playerCard.add(blackDeck.popOneCard());
@@ -68,7 +68,7 @@ public class Blackjack implements Game {
 	        if (numIn == 1) {
 	        	if (sumOfNum(dealerCard) == 21) {
 	        		System.out.println("Insurance succeeded. Your money is returned.");
-	        		check = true; endGame = true;
+	        		check = true; 
 	        		return true;
 	        	} else {
 	        		insuBool = true;
@@ -200,14 +200,7 @@ public class Blackjack implements Game {
 	
 
 	public int cheapGain(int bet) {
-		if (betMoney != bet) {
-			return betMoney;
-		} else if (check == true) {
-			return bet;
-		} else {
-			return bet*2;
-		}
-		
+		return betMoney;
 	}
 
 	public void printResult(ArrayList<Card> dl, ArrayList<Card> pl) {
@@ -222,17 +215,17 @@ public class Blackjack implements Game {
 		System.out.println("Dealer's Card Deck");
 		printValue(dl);
 		if (bust1) {
-			betMoney = 0; System.out.println("You bust."); endGame=true;
+			betMoney *= (-1); System.out.println("You bust."); 
 		}
 		else {
 			if (sumOfNum(dl) > 21) {
-				System.out.println("Dealer Bust."); betMoney*=2; endGame=true;
+				System.out.println("Dealer Bust."); 
 			} else {
 				int dScore = 21 - sumOfNum(dl); int pScore = 21 - sumOfNum(pl);
 				if (dScore <= pScore) {
-					System.out.println("You lose."); betMoney=0;
+					System.out.println("You lose."); betMoney*=(-1);
 				} else {
-					System.out.println("You win."); betMoney*=2;
+					System.out.println("You win."); 
 				}
 			}
 		}
@@ -254,42 +247,44 @@ public void printResult(ArrayList<Card> dl, ArrayList<Card> plF, ArrayList<Card>
 	System.out.println("Dealer's Card Deck");
 	printValue(dl);
 	if (bust1 && bust2) {
-		System.out.println("Your both decks bust."); betMoney = 0; endGame = true;
+		System.out.println("Your both decks bust."); betMoney *= (-1); 
 	}
 	else if (bust1 && !bust2) {
-		System.out.println("Your first deck bust."); betMoney /= 2;
+		System.out.println("Your first deck bust."); 
 		int dScore = 21 - sumOfNum(dl); int pScore = 21 - sumOfNum(plS);
 		if (dScore <= pScore) {
-			System.out.println("You lose."); betMoney=0;
+			System.out.println("You lose."); betMoney*=(-1);
 		} else {
-			System.out.println("You win."); betMoney*=2;
+			System.out.println("You win."); betMoney=0;
 		}
-		endGame = true;
+		
 	}
 	else if (!bust1 && bust2) {
-		System.out.println("Your second deck bust."); betMoney /= 2;
+		System.out.println("Your second deck bust.");
 		int dScore = 21 - sumOfNum(dl); int pScore = 21 - sumOfNum(plF);
 		if (dScore <= pScore) {
-			System.out.println("You lose."); betMoney=0;
+			System.out.println("You lose."); betMoney*=(-1);
 		} else {
-			System.out.println("You win."); betMoney*=2;
+			System.out.println("You win."); betMoney = 0;
 		}
-		endGame = true;
+		
 	}
 	else {
 		if (sumOfNum(dl) > 21) {
-			System.out.println("Dealer Bust."); betMoney*=2;
+			System.out.println("Dealer Bust."); 
 		} else {
 			int dScore = 21 - sumOfNum(dl); int pScore = 21 - sumOfNum(plF);
 			int p2Score = 21 - sumOfNum(plS);
 			if (dScore <= pScore && dScore <= p2Score) {
-				System.out.println("You lose."); betMoney=0;
+				System.out.println("You lose."); betMoney*=(-1);
 			} else if (dScore <= pScore && dScore > p2Score){
 				System.out.println("Your first deck wins.");
+				betMoney = 0;
 			} else if (dScore > pScore && dScore <= p2Score) {
 				System.out.println("Your Second deck wins.");
+				betMoney = 0;
 			} else {
-				System.out.println("Your both decks win."); betMoney*=2;;
+				System.out.println("Your both decks win.");
 			}
 		}
 		
