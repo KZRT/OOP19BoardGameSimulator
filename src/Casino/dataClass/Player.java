@@ -1,3 +1,5 @@
+package Casino.dataClass;
+
 public class Player {
     private int wallet;
     private int chipTotal;
@@ -37,8 +39,8 @@ public class Player {
     }
 
     public void printWallet() {
-        System.out.println("Player currently has " + wallet + "$");
-        System.out.println("Player currently has " + chipTotal + "chips");
+        System.out.println("Casino.dataClass.Player currently has " + wallet + "$");
+        System.out.println("Casino.dataClass.Player currently has " + chipTotal + "chips");
     }
 
     public int chipToWallet() {

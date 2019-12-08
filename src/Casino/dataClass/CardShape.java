@@ -1,3 +1,5 @@
+package Casino.dataClass;
+
 public enum CardShape {
     SPADE("♠"), HEART("♥"), DIAMOND("◆"), CLOVE("♣");
 

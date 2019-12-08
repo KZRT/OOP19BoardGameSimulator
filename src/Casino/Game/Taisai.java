@@ -1,3 +1,8 @@
+package Casino.Game;
+
+import Casino.dataClass.Dice;
+import Casino.dataClass.Player;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -5,7 +10,6 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
-import java.lang.Math.*;
 import java.text.NumberFormat;
 
 public class Taisai implements Game {
@@ -15,7 +19,7 @@ public class Taisai implements Game {
     private boolean betEnd;
     private int addBetMoney, totalBetMoney, totalLoseMoney, totalEarnMoney;
 
-    Taisai() {
+    public Taisai() {
         taisaiDice = new Dice[3];
         for (int i = 0; i < 3; i++) {
             taisaiDice[i] = new Dice();
@@ -119,13 +123,13 @@ public class Taisai implements Game {
         while (true) {
             System.out.println("1. Big / Small Bet (x1)");
             System.out.println("2. Even / Odd Bet (x1)");
-            System.out.println("3. Pair Dice Bet (x8)");
+            System.out.println("3. Pair Casino.dataClass.Dice Bet (x8)");
             System.out.println("4. Any Triple Bet (x24)");
             System.out.println("5. Triple Bet (x150)");
             System.out.println("6. Total Number Bet (x6~50)");
             System.out.println("7. Domino Bet (x5)");
             System.out.println("8. Easy Combination Bet (x7)");
-            System.out.println("9. Single Dice Bet (x1~3)");
+            System.out.println("9. Single Casino.dataClass.Dice Bet (x1~3)");
             System.out.println("10. Hard Number Bet (x30)");
             System.out.println("11. Pair Plus Bet (x50)");
             System.out.print("Where to bet? : ");
@@ -134,8 +138,8 @@ public class Taisai implements Game {
             switch (betnumber1) {
             case 1: // big small
                 while (true) {
-                    System.out.println("1. Small Bet: Sum of Dice = 4 ~ 10 (x1)");
-                    System.out.println("2. Big Bet: Sum of Dice = 11 ~ 17 (x1)");
+                    System.out.println("1. Small Bet: Sum of Casino.dataClass.Dice = 4 ~ 10 (x1)");
+                    System.out.println("2. Big Bet: Sum of Casino.dataClass.Dice = 11 ~ 17 (x1)");
                     System.out.print("Where to bet? : ");
                     betnumber2 = input.nextInt();
                     if (betnumber2 >= 0 && betnumber2 <= 2) {
@@ -147,8 +151,8 @@ public class Taisai implements Game {
                 break;
             case 2: // even odd
                 while (true) {
-                    System.out.println("1. Odd Bet: Sum of Dice is Odd (x1)");
-                    System.out.println("2. Even Bet: Sum of Dice is Even (x1)");
+                    System.out.println("1. Odd Bet: Sum of Casino.dataClass.Dice is Odd (x1)");
+                    System.out.println("2. Even Bet: Sum of Casino.dataClass.Dice is Even (x1)");
                     System.out.print("Where to bet? : ");
                     betnumber2 = input.nextInt();
                     if (betnumber2 >= 0 && betnumber2 <= 2) {
@@ -160,7 +164,7 @@ public class Taisai implements Game {
                 break;
             case 3: // pair dice
                 while (true) {
-                    System.out.println("Two Dice is Same (x8)");
+                    System.out.println("Two Casino.dataClass.Dice is Same (x8)");
                     System.out.print("Which Number to bet? (1~6) : ");
                     betnumber2 = input.nextInt();
                     if (betnumber2 >= 0 && betnumber2 <= 6) {
@@ -171,12 +175,12 @@ public class Taisai implements Game {
                 }
                 break;
             case 4: // any triple
-                System.out.println("Three Dice is Same (x24)");
+                System.out.println("Three Casino.dataClass.Dice is Same (x24)");
                 betnumber2 = 1;
                 break;
             case 5: // triple
                 while (true) {
-                    System.out.println("Three Dice is Same (x150)");
+                    System.out.println("Three Casino.dataClass.Dice is Same (x150)");
                     System.out.print("Which Number to bet? (1~6) : ");
                     betnumber2 = input.nextInt();
                     if (betnumber2 >= 0 && betnumber2 <= 6) {
@@ -188,7 +192,7 @@ public class Taisai implements Game {
                 break;
             case 6: // total number
                 while (true) {
-                    System.out.println("Three Dice Total Number");
+                    System.out.println("Three Casino.dataClass.Dice Total Number");
                     System.out.println("Total number is 4 or 17 (x50)");
                     System.out.println("Total number is 5 or 16 (x30)");
                     System.out.println("Total number is 6 or 15 (x18)");
@@ -206,7 +210,7 @@ public class Taisai implements Game {
                 break;
             case 7: // domino 1 2 3 4 5 6
                 while (true) {
-                    System.out.println("Two Dice Combination (x5)");
+                    System.out.println("Two Casino.dataClass.Dice Combination (x5)");
                     System.out.println(" 1. 1 2 |  2. 1 3 |  3. 1 4 |  4. 1 5 |  5. 1 6");
                     System.out.println(" 6. 2 3 |  7. 2 4 |  8. 2 5 |  9. 2 6");
                     System.out.println("10. 3 4 | 11. 3 5 | 12. 3 6");
@@ -223,7 +227,7 @@ public class Taisai implements Game {
                 break;
             case 8: // easy combination
                 while (true) {
-                    System.out.println("Three Dice Combination included in Four Dices");
+                    System.out.println("Three Casino.dataClass.Dice Combination included in Four Dices");
                     System.out.println("1. 1 2 3 4 (x7)");
                     System.out.println("2. 2 3 4 5 (x7)");
                     System.out.println("3. 2 3 5 6 (x7)");
@@ -240,7 +244,7 @@ public class Taisai implements Game {
             case 9: // single dice
                 while (true) {
                     System.out.println("One Number is included in Three Dices");
-                    System.out.println("Number matches One Dice (x1)");
+                    System.out.println("Number matches One Casino.dataClass.Dice (x1)");
                     System.out.println("Number matches Two Dices (x2)");
                     System.out.println("Number matches All Three Dices (x3)");
                     System.out.print("Which Number to bet? (1~6) : ");
@@ -270,7 +274,7 @@ public class Taisai implements Game {
                 break;
             case 11: // pair plus 1 2 3 4 5 6
                 while (true) {
-                    System.out.println("One Pair Dice and Another Dice (x50)");
+                    System.out.println("One Pair Casino.dataClass.Dice and Another Casino.dataClass.Dice (x50)");
                     System.out.println(" 1. 1 1 2 |  2. 1 1 3 |  3. 1 1 4 |  4. 1 1 5 |  5. 1 1 6");
                     System.out.println(" 6. 2 2 1 |  7. 2 2 3 |  8. 2 2 4 |  9. 2 2 5 | 10. 2 2 6");
                     System.out.println("11. 3 3 1 | 12. 3 3 2 | 13. 3 3 4 | 14. 3 3 5 | 15. 3 3 6");
@@ -316,7 +320,7 @@ public class Taisai implements Game {
          * diceSymbol[taisaiDice[2].getDiceNum()]); }
          */
         System.out.println("=============================");
-        System.out.print("Dice Number :");
+        System.out.print("Casino.dataClass.Dice Number :");
         for (int i = 0; i < 3; i++) {
             taisaiDice[i].roll();
             System.out.print(" [" + taisaiDice[i].getDiceNum() + "]");
@@ -362,15 +366,15 @@ public class Taisai implements Game {
                 case 3:
                     if (d1 == d2 && d2 != d3 && betList[3].get(d1) != 0) {
                         totalEarnMoney += betList[3].get(d1) * 8;
-                        System.out.println("You earn " + betList[3].get(d1) * 8 + " from Pair Dice Bet(" + d1 + ")!");
+                        System.out.println("You earn " + betList[3].get(d1) * 8 + " from Pair Casino.dataClass.Dice Bet(" + d1 + ")!");
                         totalLoseMoney -= betList[3].get(d1);
                     } else if (d1 == d3 && d1 != d2 && betList[3].get(d1) != 0) {
                         totalEarnMoney += betList[3].get(d1) * 8;
-                        System.out.println("You earn " + betList[3].get(d1) * 8 + " from Pair Dice Bet(" + d1 + ")!");
+                        System.out.println("You earn " + betList[3].get(d1) * 8 + " from Pair Casino.dataClass.Dice Bet(" + d1 + ")!");
                         totalLoseMoney -= betList[3].get(d1);
                     } else if (d2 == d3 && d1 != d2) {
                         totalEarnMoney += betList[3].get(d2) * 8;
-                        System.out.println("You earn " + betList[3].get(d2) * 8 + " from Pair Dice Bet(" + d2 + ")!");
+                        System.out.println("You earn " + betList[3].get(d2) * 8 + " from Pair Casino.dataClass.Dice Bet(" + d2 + ")!");
                         totalLoseMoney -= betList[3].get(d2);
                     }
                     break;
@@ -471,65 +475,65 @@ public class Taisai implements Game {
                         if (betList[9].get(d1) != 0) {
                             totalEarnMoney += betList[9].get(d1) * 3;
                             System.out.println(
-                                    "You earn " + betList[9].get(d1) * 3 + " from Single Dice Bet(" + d1 + ")!");
+                                    "You earn " + betList[9].get(d1) * 3 + " from Single Casino.dataClass.Dice Bet(" + d1 + ")!");
                             totalLoseMoney -= betList[9].get(d1);
                         }
                     } else if (d1 == d2 && d1 != d3) {
                         if (betList[9].get(d1) != 0) {
                             totalEarnMoney += betList[9].get(d1) * 2;
                             System.out.println(
-                                    "You earn " + betList[9].get(d1) * 2 + " from Single Dice Bet(" + d1 + ")!");
+                                    "You earn " + betList[9].get(d1) * 2 + " from Single Casino.dataClass.Dice Bet(" + d1 + ")!");
                             totalLoseMoney -= betList[9].get(d1);
                         }
                         if (betList[9].get(d3) != 0) {
                             totalEarnMoney += betList[9].get(d3) * 1;
                             System.out.println(
-                                    "You earn " + betList[9].get(d3) * 1 + " from Single Dice Bet(" + d3 + ")!");
+                                    "You earn " + betList[9].get(d3) * 1 + " from Single Casino.dataClass.Dice Bet(" + d3 + ")!");
                             totalLoseMoney -= betList[9].get(d3);
                         }
                     } else if (d1 == d3 && d1 != d2) {
                         if (betList[9].get(d1) != 0) {
                             totalEarnMoney += betList[9].get(d1) * 2;
                             System.out.println(
-                                    "You earn " + betList[9].get(d1) * 2 + " from Single Dice Bet(" + d1 + ")!");
+                                    "You earn " + betList[9].get(d1) * 2 + " from Single Casino.dataClass.Dice Bet(" + d1 + ")!");
                             totalLoseMoney -= betList[9].get(d1);
                         }
                         if (betList[9].get(d2) != 0) {
                             totalEarnMoney += betList[9].get(d2) * 1;
                             System.out.println(
-                                    "You earn " + betList[9].get(d2) * 1 + " from Single Dice Bet(" + d2 + ")!");
+                                    "You earn " + betList[9].get(d2) * 1 + " from Single Casino.dataClass.Dice Bet(" + d2 + ")!");
                             totalLoseMoney -= betList[9].get(d2);
                         }
                     } else if (d2 == d3 && d1 != d2) {
                         if (betList[9].get(d2) != 0) {
                             totalEarnMoney += betList[9].get(d2) * 2;
                             System.out.println(
-                                    "You earn " + betList[9].get(d2) * 2 + " from Single Dice Bet(" + d2 + ")!");
+                                    "You earn " + betList[9].get(d2) * 2 + " from Single Casino.dataClass.Dice Bet(" + d2 + ")!");
                             totalLoseMoney -= betList[9].get(d2);
                         }
                         if (betList[9].get(d1) != 0) {
                             totalEarnMoney += betList[9].get(d1) * 1;
                             System.out.println(
-                                    "You earn " + betList[9].get(d1) * 1 + " from Single Dice Bet(" + d1 + ")!");
+                                    "You earn " + betList[9].get(d1) * 1 + " from Single Casino.dataClass.Dice Bet(" + d1 + ")!");
                             totalLoseMoney -= betList[9].get(d1);
                         }
                     } else {
                         if (betList[9].get(d1) != 0) {
                             totalEarnMoney += betList[9].get(d1) * 1;
                             System.out.println(
-                                    "You earn " + betList[9].get(d1) * 1 + " from Single Dice Bet(" + d1 + ")!");
+                                    "You earn " + betList[9].get(d1) * 1 + " from Single Casino.dataClass.Dice Bet(" + d1 + ")!");
                             totalLoseMoney -= betList[9].get(d1);
                         }
                         if (betList[9].get(d2) != 0) {
                             totalEarnMoney += betList[9].get(d2) * 1;
                             System.out.println(
-                                    "You earn " + betList[9].get(d2) * 1 + " from Single Dice Bet(" + d2 + ")!");
+                                    "You earn " + betList[9].get(d2) * 1 + " from Single Casino.dataClass.Dice Bet(" + d2 + ")!");
                             totalLoseMoney -= betList[9].get(d2);
                         }
                         if (betList[9].get(d3) != 0) {
                             totalEarnMoney += betList[9].get(d3) * 1;
                             System.out.println(
-                                    "You earn " + betList[9].get(d3) * 1 + " from Single Dice Bet(" + d3 + ")!");
+                                    "You earn " + betList[9].get(d3) * 1 + " from Single Casino.dataClass.Dice Bet(" + d3 + ")!");
                             totalLoseMoney -= betList[9].get(d3);
                         }
                     }

@@ -1,3 +1,8 @@
+package Casino.Game;
+
+import Casino.dataClass.Card;
+import Casino.dataClass.CardShape;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

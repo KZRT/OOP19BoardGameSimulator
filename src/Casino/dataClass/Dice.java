@@ -1,8 +1,10 @@
+package Casino.dataClass;
+
 import static java.lang.Math.*;
 
 public class Dice {
     private int diceNum;
-    Dice(){
+    public Dice(){
         diceNum = 1;
     }
     public int roll()

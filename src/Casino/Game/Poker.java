@@ -1,3 +1,9 @@
+package Casino.Game;
+
+import Casino.dataClass.Card;
+import Casino.dataClass.Deck;
+import Casino.dataClass.Player;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -12,7 +18,7 @@ public class Poker implements Game {
     private int turn;
     private boolean fold = false, tie = false;
 
-    Poker() {
+    public Poker() {
         pokerDeck = new Deck(1);
         playerHand = new ArrayList<>(7);
         dealerHand = new ArrayList<>(7);
@@ -92,7 +98,7 @@ public class Poker implements Game {
             return true;
         } else if (turn == 6) {
 
-            System.out.println("\t\t\t\t\t\tEnd of Game");
+            System.out.println("\t\t\t\t\t\tEnd of Casino.Game");
             dealerHand.addAll(riverHand);
             playerHand.addAll(riverHand);
             Collections.sort(dealerHand);

@@ -1,4 +1,4 @@
-import java.util.Collections;
+package Casino.dataClass;
 
 public class Card implements Comparable<Card> {
     private int num;

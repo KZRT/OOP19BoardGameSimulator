@@ -1,3 +1,8 @@
+package Casino.Game;
+
+import Casino.Main;
+import Casino.dataClass.Player;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
@@ -20,7 +25,7 @@ public class Slot implements Game {
     private String[] line = { "？", "？", "？" };
     private SecureRandom r;
 
-    Slot() throws NoSuchAlgorithmException {
+    public Slot() throws NoSuchAlgorithmException {
         r = SecureRandom.getInstance("SHA1PRNG");
     }
 
@@ -193,7 +198,7 @@ public class Slot implements Game {
 
     private void print(String[] line) {
         System.out.println("========================");
-        System.out.println("|       OOP Slot       |");
+        System.out.println("|       OOP Casino.Game.Slot       |");
         System.out.println("========================");
         System.out.println("|  ７ ７ ７   : 5000x  |");
         System.out.println("|  ★ ★ ★   : 100x   |");

@@ -1,3 +1,5 @@
+package Casino.dataClass;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,7 +17,7 @@ public class Deck {
         }
     }
 
-    Deck(int deckCount) {
+    public Deck(int deckCount) {
         this.deckCount = deckCount;
         this.currentDeck = new ArrayList<>();
         for (int i = 0; i < deckCount; i++) {
@@ -47,7 +49,7 @@ public class Deck {
     public Card popOneCard() {
         if (isDeckEmpty()) {
             this.shuffleDeck();
-            System.out.println("Deck Is Empty. Shuffling Deck Again");
+            System.out.println("Casino.dataClass.Deck Is Empty. Shuffling Casino.dataClass.Deck Again");
         }
         return this.currentDeck.remove(0);
     }

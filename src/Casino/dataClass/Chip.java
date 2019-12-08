@@ -1,3 +1,5 @@
+package Casino.dataClass;
+
 public enum Chip {
 
     WHITE(1), YELLOW( 2), RED(5), BLUE(10), GREY(20), GREEN(25), ORANGE(50),

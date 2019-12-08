@@ -1,6 +1,10 @@
+package Casino;
+
+import Casino.Game.*;
+import Casino.dataClass.Player;
+
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class GameManager {
