@@ -107,7 +107,7 @@ public class Taisai implements Game {
         return true;
     }
 
-    public int cheapGain(int bet) {
+    public int chipGain(int bet) {
         Player.getInstance().setWallet(Player.getInstance().getWallet() + totalBetMoney);
         Player.getInstance().setWallet(Player.getInstance().getWallet() - totalLoseMoney);
         Player.getInstance().setWallet(Player.getInstance().getWallet() + totalEarnMoney);

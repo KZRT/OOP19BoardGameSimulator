@@ -74,7 +74,7 @@ public class GameManager {
                 break;
         }
 
-        card = wholeGame.cheapGain(bet);
+        card = wholeGame.chipGain(bet);
         System.out
                 .println("\n(Total Profit: " + (card > 0 ? "+" : "") + NumberFormat.getInstance().format(card) + ")\n");
     }

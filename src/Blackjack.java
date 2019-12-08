@@ -213,7 +213,7 @@ public class Blackjack implements Game {
         return false;
     }
 
-    public int cheapGain(int bet) {
+    public int chipGain(int bet) {
         Player.getInstance().setWallet(Player.getInstance().getWallet() + betMoney);
         return betMoney;
     }

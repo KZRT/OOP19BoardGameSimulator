@@ -211,7 +211,7 @@ public class Baccarat implements Game {
         return true;
     }
 
-    public int cheapGain(int bet) {
+    public int chipGain(int bet) {
         int reward = calcReward();
         Player.getInstance().setWallet(Player.getInstance().getWallet() + reward);
         return reward - betSum;

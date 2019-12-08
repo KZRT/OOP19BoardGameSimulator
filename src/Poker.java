@@ -134,7 +134,7 @@ public class Poker implements Game {
         return false;
     }
 
-    public int cheapGain(int bet) {
+    public int chipGain(int bet) {
         int profit = 0;
 
         if (tie)

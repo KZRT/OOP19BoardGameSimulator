@@ -73,7 +73,7 @@ public class Slot implements Game {
         }
     }
 
-    public int cheapGain(int bet) {
+    public int chipGain(int bet) {
         int profit = calcProfit();
         Player.getInstance().setWallet(Player.getInstance().getWallet() + profit);
         return profit;
