@@ -7,12 +7,15 @@ public class Baccarat implements Game {
     private BaccaratHands hands = new BaccaratHands();
     private ArrayList<Bet> bets = new ArrayList<>();
     private int turn = 0;
+    private int betSum = 0;
     private boolean gameEnd = false;
 
     public boolean initialize(int bet) {
         Scanner input = new Scanner(System.in);
         System.out.print("'P' to Bet on Player(x1), 'B' to Bet on Banker(x0.95): ");
         bets.add(new Bet((input.nextLine().trim().toUpperCase().equals("P") ? BetType.PLAYER : BetType.BANKER), bet));
+        Player.getInstance().payWallet(bet);
+        betSum += bet;
 
         System.out.println("\n[SIDE BET]");
         int money = 0;
@@ -31,6 +34,7 @@ public class Baccarat implements Game {
         if (money > 0) {
             bets.add(new Bet(BetType.TIE, money));
             Player.getInstance().payWallet(money);
+            betSum += money;
         }
 
         if (bets.get(0).type == BetType.PLAYER) {
@@ -48,6 +52,7 @@ public class Baccarat implements Game {
             if (money > 0) {
                 bets.add(new Bet(BetType.BANKER_PAIR, money));
                 Player.getInstance().payWallet(money);
+                betSum += money;
             }
         } else {
             while (true) {
@@ -64,6 +69,7 @@ public class Baccarat implements Game {
             if (money > 0) {
                 bets.add(new Bet(BetType.PLAYER_PAIR, money));
                 Player.getInstance().payWallet(money);
+                betSum += money;
             }
         }
 
@@ -206,7 +212,9 @@ public class Baccarat implements Game {
     }
 
     public int cheapGain(int bet) {
-        return calcReward();
+        int reward = calcReward();
+        Player.getInstance().setWallet(Player.getInstance().getWallet() + reward);
+        return reward - betSum;
     }
 
     private void printGameResult() {

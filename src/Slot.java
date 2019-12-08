@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Slot implements Game {
-    // 2배 20%
+    // 1배 20%
     // 5배 5%
     // 10배 1%
     // 20배 0.45%
@@ -56,29 +56,35 @@ public class Slot implements Game {
             return true;
         } else {
             gameEnd = true;
-            
+
             if (result == GameResult.SEVEN) {
-                System.out.println("\n" +
-                        "::::::'##::::'###:::::'######::'##:::'##:'########:::'#######::'########:\n" + 
-                        ":::::: ##:::'## ##:::'##... ##: ##::'##:: ##.... ##:'##.... ##:... ##..::\n" + 
-                        ":::::: ##::'##:. ##:: ##:::..:: ##:'##::: ##:::: ##: ##:::: ##:::: ##::::\n" + 
-                        ":::::: ##:'##:::. ##: ##::::::: #####:::: ########:: ##:::: ##:::: ##::::\n" + 
-                        "'##::: ##: #########: ##::::::: ##. ##::: ##.....::: ##:::: ##:::: ##::::\n" + 
-                        " ##::: ##: ##.... ##: ##::: ##: ##:. ##:: ##:::::::: ##:::: ##:::: ##::::\n" + 
-                        ". ######:: ##:::: ##:. ######:: ##::. ##: ##::::::::. #######::::: ##::::\n" + 
-                        ":......:::..:::::..:::......:::..::::..::..::::::::::.......::::::..:::::");
+                System.out.println("\n"
+                        + "::::::'##::::'###:::::'######::'##:::'##:'########:::'#######::'########:\n"
+                        + ":::::: ##:::'## ##:::'##... ##: ##::'##:: ##.... ##:'##.... ##:... ##..::\n"
+                        + ":::::: ##::'##:. ##:: ##:::..:: ##:'##::: ##:::: ##: ##:::: ##:::: ##::::\n"
+                        + ":::::: ##:'##:::. ##: ##::::::: #####:::: ########:: ##:::: ##:::: ##::::\n"
+                        + "'##::: ##: #########: ##::::::: ##. ##::: ##.....::: ##:::: ##:::: ##::::\n"
+                        + " ##::: ##: ##.... ##: ##::: ##: ##:. ##:: ##:::::::: ##:::: ##:::: ##::::\n"
+                        + ". ######:: ##:::: ##:. ######:: ##::. ##: ##::::::::. #######::::: ##::::\n"
+                        + ":......:::..:::::..:::......:::..::::..::..::::::::::.......::::::..:::::");
             }
-            
+
             return false;
         }
     }
 
     public int cheapGain(int bet) {
+        int profit = calcProfit();
+        Player.getInstance().setWallet(Player.getInstance().getWallet() + profit);
+        return profit;
+    }
+
+    private int calcProfit() {
         switch (result) {
         case NONE:
-            return 0;
+            return -bet;
         case ONE_CHERRY:
-            return bet * 2;
+            return bet;
         case TWO_CHERRY:
             return bet * 5;
         case CHERRY:
@@ -101,7 +107,7 @@ public class Slot implements Game {
     private GameResult makeBetResult() {
         int[] p = { 200000, 50000, 10000, 4500, 3000, 400, 200, 1 };
         int roll = r.nextInt(1000000) + 1;
-        
+
         if (bet == 777) {
             return GameResult.SEVEN;
         }
@@ -196,7 +202,7 @@ public class Slot implements Game {
         System.out.println("|  Ｂ Ｂ Ｂ   : 20x    |");
         System.out.println("|  ♬ ♬ ♬   : 10x    |");
         System.out.println("|  ANY TWO ♬ : 5x     |");
-        System.out.println("|  ANY ONE ♬ : 2x     |");
+        System.out.println("|  ANY ONE ♬ : 1x     |");
         System.out.println("========================");
         System.out.println("||      |      |      ||");
         System.out.println("||  " + line[0] + "  |  " + line[1] + "  |  " + line[2] + "  ||");
