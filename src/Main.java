@@ -17,6 +17,7 @@ public class Main {
             System.out.println("|   3. Baccarat    |");
             System.out.println("|   4. Slot        |");
             System.out.println("|   5. Taisai      |");
+            System.out.println("|   9. Exchange    |");
             System.out.println("|   0. Finish      |");
             System.out.println("====================");
 
@@ -34,7 +35,19 @@ public class Main {
             input.nextLine();
 
             clearScreen();
-            gm.gametoPlay(gameNum);
+            if (gameNum == 9) {
+                System.out.println("(My Money: $" + NumberFormat.getInstance().format(player.getWallet()) + ")\n");
+                System.out.println("How much do you want to Charge?");
+                System.out.print(">> ");
+                int tempInt = input.nextInt();
+                while(tempInt < 0)
+                {
+                    System.out.println("You should input more than 0");
+                    System.out.print(">> ");
+                    tempInt = input.nextInt();
+                }
+                player.setWallet(player.getWallet() + tempInt);
+            } else gm.gametoPlay(gameNum);
             if (gameNum != 0) {
                 System.out.print("Press Enter to Continue...");
                 input.nextLine();
