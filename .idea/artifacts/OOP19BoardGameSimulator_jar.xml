@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="OOP19BoardGameSimulator:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/OOP19BoardGameSimulator_jar</output-path>
-    <root id="archive" name="OOP19BoardGameSimulator.jar">
-      <element id="module-output" name="OOP19BoardGameSimulator" />
-    </root>
-  </artifact>
-</component>

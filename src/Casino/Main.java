@@ -6,10 +6,14 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
+    public static final boolean isWindows = System.getProperty("os.name")
+            .toLowerCase().contains("win");
+
     public static void main(String[] args) {
         Player player = Player.getInstance();
         GameManager gm = new GameManager();
-        int gameNum = 0;
+        int gameNum;
+
         do {
             clearScreen();
 
@@ -44,8 +48,7 @@ public class Main {
                 System.out.println("How much do you want to Charge?");
                 System.out.print(">> ");
                 int tempInt = input.nextInt();
-                while(tempInt < 0)
-                {
+                while (tempInt < 0) {
                     System.out.println("You should input more than 0");
                     System.out.print(">> ");
                     tempInt = input.nextInt();
@@ -57,13 +60,10 @@ public class Main {
                 input.nextLine();
             }
         } while (gameNum != 0);
-
     }
 
     public static void clearScreen() {
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < 100; i++)
-            builder.append('\n');
-        System.out.println(builder.toString());
+        System.out.print(isWindows ? "\n".repeat(100) : "\033[H\033[2J");
+        System.out.flush();
     }
 }
