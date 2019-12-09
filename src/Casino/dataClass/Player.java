@@ -60,7 +60,7 @@ public class Player {
     }
 
     public int walletToChip(int[] chipCounts) throws SecurityException{
-        for(int i=12; i>=0; i++)
+        for(int i=12; i>=0; i--)
         {
             if(wallet - chipCounts[i] * Chip.indexToChipValue(i) < 0)
             {
