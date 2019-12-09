@@ -1,14 +1,12 @@
 package Casino;
 
+import Casino.dataClass.Color;
 import Casino.dataClass.Player;
 
 import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
-    public static final boolean isWindows = System.getProperty("os.name")
-            .toLowerCase().contains("win");
-
     public static void main(String[] args) {
         Player player = Player.getInstance();
         GameManager gm = new GameManager();
@@ -17,6 +15,7 @@ public class Main {
         do {
             clearScreen();
 
+            setOutputColor(Color.ANSI_BLUE);
             System.out.println("====================");
             System.out.println("|    OOP Casino    |");
             System.out.println("====================");
@@ -28,6 +27,7 @@ public class Main {
             System.out.println("|   9. Exchange    |");
             System.out.println("|   0. Finish      |");
             System.out.println("====================");
+            resetOutputColor();
 
             if (player.getWallet() == 0) {
                 System.out.println("\nYour money is $0.");
@@ -36,7 +36,8 @@ public class Main {
                 break;
             }
 
-            System.out.println("(My Money: $" + NumberFormat.getInstance().format(player.getWallet()) + ")\n");
+            printMoney();
+
             System.out.print(">> ");
             Scanner input = new Scanner(System.in);
             gameNum = input.nextInt();
@@ -44,7 +45,7 @@ public class Main {
 
             clearScreen();
             if (gameNum == 9) {
-                System.out.println("(My Money: $" + NumberFormat.getInstance().format(player.getWallet()) + ")\n");
+                printMoney();
                 System.out.println("How much do you want to Charge?");
                 System.out.print(">> ");
                 int tempInt = input.nextInt();
@@ -62,8 +63,28 @@ public class Main {
         } while (gameNum != 0);
     }
 
+    public static final boolean isWindows = System.getProperty("os.name")
+            .toLowerCase().contains("win");
+
+    public static void printMoney() {
+        System.out.print("(My Money: ");
+        setOutputColor(Color.ANSI_YELLOW);
+        System.out.print('$' + NumberFormat.getInstance()
+                .format(Player.getInstance().getWallet()));
+        resetOutputColor();
+        System.out.println(')');
+    }
+
     public static void clearScreen() {
         System.out.print(isWindows ? "\n".repeat(100) : "\033[H\033[2J");
         System.out.flush();
+    }
+
+    public static void setOutputColor(Color color) {
+        System.out.print(color);
+    }
+
+    public static void resetOutputColor() {
+        setOutputColor(Color.ANSI_RESET);
     }
 }

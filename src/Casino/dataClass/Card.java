@@ -1,5 +1,7 @@
 package Casino.dataClass;
 
+import Casino.Main;
+
 public class Card implements Comparable<Card> {
     private int num;
     private CardShape shape;
@@ -31,11 +33,17 @@ public class Card implements Comparable<Card> {
     }
 
     public void print() {
-        this.shape.print();
+        Main.setOutputColor(Color.ANSI_WHITE_BACKGROUND);
+        if (shape == CardShape.SPADE || shape == CardShape.CLOVE)
+            Main.setOutputColor(Color.ANSI_BLACK);
+        else
+            Main.setOutputColor(Color.ANSI_RED);
+
+        shape.print();
         System.out.print(" ");
-        if(this.num != 10) System.out.print(" ");
-        if (this.num > 10) {
-            switch (this.num) {
+        if (num != 10) System.out.print(" ");
+        if (num > 10) {
+            switch (num) {
                 case 11:
                     System.out.print("J");
                     break;
@@ -46,10 +54,12 @@ public class Card implements Comparable<Card> {
                     System.out.print("K");
                     break;
             }
-        } else if (this.num == 1) {
+        } else if (num == 1) {
             System.out.print("A");
         } else
             System.out.print(num);
+
+        Main.resetOutputColor();
     }
 
     public int getNum() {
