@@ -76,8 +76,15 @@ public class Main {
     }
 
     public static void clearScreen() {
-        System.out.print(isWindows ? "\n".repeat(100) : "\033[H\033[2J");
-        System.out.flush();
+        if (isWindows) {
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < 100; i++)
+                builder.append('\n');
+            System.out.println(builder.toString());
+        } else {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
     }
 
     public static void setOutputColor(Color color) {
